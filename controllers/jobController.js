@@ -43,10 +43,11 @@ module.exports = {
     //get a Job
     getJob: async (res, req) =>{
         try {
-            const job = await Job.findById(req.params.id)
+            const job = await Job.findById(req.params.id);
             const { __v, createdAt, updatedAt, ...jobInfo } = job._doc;
-            req.status(200).json(jobInfo)
+            req.status(200).json(jobInfo);
         } catch (error) {
+            //console.log(error);
             res.status(500).json(error)
         }
     },

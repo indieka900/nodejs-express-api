@@ -45,7 +45,7 @@ module.exports = {
         try {
             const job = await Job.findById(req.params.id);
             const { __v, createdAt, updatedAt, ...jobInfo } = job._doc;
-            req.status(200).json(jobInfo);
+            res.status(200).json(jobInfo);
         } catch (error) {
             //console.log(error);
             res.status(500).json(error)
@@ -56,7 +56,7 @@ module.exports = {
     getAllJobs: async (res, req) =>{
         try {
             const job = await Job.find();
-            req.status(200).json(job)
+            res.status(200).json(job)
         } catch (error) {
             res.status(500).json(error)
         }
